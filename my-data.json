@@ -1,0 +1,16 @@
+[
+  {
+    "id": 101,
+    "name": "My Local Custom Tee",
+    "price": 799,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+    "description": "This is my custom data loaded directly from my computer."
+  },
+  {
+    "id": 102,
+    "name": "Another Cool Shirt",
+    "price": 899,
+    "image": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=500&q=80",
+    "description": "JSON data upload allows me to change this anytime."
+  }
+]

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad - Premium T-Shirts</title>
+    <meta name="description" content="Ahmad Store - Purchase premium quality t-shirts easily.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="logo-icon">H</div>
+            Ahmad<span>Store</span>
+        </div>
+        <div class="header-actions">
+            <label for="data-upload" class="upload-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Upload Data
+            </label>
+            <input type="file" id="data-upload" accept=".json" style="display: none;">
+            <button class="cart-btn" aria-label="Cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="profile-btn" id="profile-btn" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <h1>Welcome to Ahmad Store</h1>
+        <p>Discover our premium collection of T-shirts. High-quality fabric, modern designs, and maximum comfort.</p>
+    </section>
+
+    <!-- Profile View (Initially Hidden) -->
+    <section class="profile-container" id="profile-container" style="display: none;">
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="https://images.unsplash.com/photo-1531297172315-823a8b274213?auto=format&fit=crop&w=200&h=200&q=80" alt="Allah Tala Trust" class="profile-avatar">
+                <div class="profile-title">
+                    <h2 id="prof-name">Ahmad's Profile</h2>
+                    <p class="spiritual-quote">Bismillah ir-Rahman ir-Rahim</p>
+                </div>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-group">
+                    <label>Allah Tala Par Yaqeen (Trust)</label>
+                    <p class="highlight-text">Alhamdulillah, Everything is from Allah.</p>
+                </div>
+                <div class="detail-group">
+                    <label>Account Status</label>
+                    <p>Premium Member 🌟</p>
+                </div>
+                <div class="detail-group">
+                    <label>Store Owner</label>
+                    <p>Ahmad</p>
+                </div>
+            </div>
+            <button class="buy-btn" id="logout-btn" style="width: 100%; margin-top: 2rem;">Back to Store</button>
+        </div>
+    </section>
+
+    <main class="shop-container" id="main-shop">
+        
+        <!-- Add New Product Form -->
+        <section class="add-product-section" id="add-product-section">
+            <h2 class="section-title">Add New T-Shirt</h2>
+            <form id="add-product-form" class="product-form">
+                <div class="form-group">
+                    <label for="new-name">Name</label>
+                    <input type="text" id="new-name" placeholder="E.g. Vintage Blue Tee" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-price">Price (₹)</label>
+                    <input type="number" id="new-price" placeholder="E.g. 599" required min="1">
+                </div>
+                <div class="form-group">
+                    <label>Upload Picture</label>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                        <input type="file" id="new-image-file" accept="image/*" required style="display: none;">
+                        <label for="new-image-file" class="upload-btn" style="width: auto; margin: 0; padding: 0.8rem 1rem; border-color: #cbd5e1; background: #fff;">Choose Image</label>
+                        <span id="file-name-display" style="font-size: 0.9rem; color: var(--text-light); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 130px;">No picture chosen</span>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="new-desc">Description</label>
+                    <textarea id="new-desc" rows="3" placeholder="Describe the t-shirt..." required></textarea>
+                </div>
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-product-btn">Add Product to Store</button>
+                    <button type="button" id="export-data-btn" class="export-btn" title="Save your current store data to a JSON file">Save Data File</button>
+                </div>
+            </form>
+        </section>
+
+        <h2 class="section-title">Trending T-Shirts</h2>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be injected here dynamically by app.js from data.js -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact Ahmad Store</h3>
+            <p>Aap humse in zaraiye (channels) se raabta kar sakte hain:</p>
+            <div class="social-links">
+                <a href="#" id="contact-phone" class="social-btn phone-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span id="phone-text">Call Us</span>
+                </a>
+                <a href="#" id="contact-whatsapp" class="social-btn whatsapp-btn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp
+                </a>
+                <a href="#" id="contact-facebook" class="social-btn facebook-btn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Success Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h2>Thank You! 🎉</h2>
+            <p id="modal-message">Your purchase was successful.</p>
+            <button class="close-modal" id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Data file load hone ke baad logic run hoga -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
