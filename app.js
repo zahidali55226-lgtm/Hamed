@@ -55,6 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Handle Filters
+    const filterContainer = document.getElementById('filter-container');
+    if (filterContainer) {
+        const filterBtns = filterContainer.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                const clickedBtn = e.target;
+                clickedBtn.classList.add('active');
+                
+                const category = clickedBtn.getAttribute('data-category');
+                
+                if (category === 'all') {
+                    renderProducts(currentProducts);
+                } else {
+                    const filtered = currentProducts.filter(p => p.category === category);
+                    renderProducts(filtered);
+                }
+            });
+        });
+    }
+
     function handlePurchase(productName) {
         cartItems++;
         cartCount.textContent = cartItems;
@@ -120,6 +142,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 facebookEl.href = contactInfo.facebook;
             }
         }
+        
+        if (typeof bankInfo !== 'undefined') {
+            const epName = document.getElementById('easypaisa-name');
+            const epNo = document.getElementById('easypaisa-no');
+            const jcName = document.getElementById('jazzcash-name');
+            const jcNo = document.getElementById('jazzcash-no');
+            const bankName = document.getElementById('bank-name');
+            const bankNo = document.getElementById('bank-no');
+            
+            if(epName) epName.textContent = `Name: ${bankInfo.easypaisa.accountName}`;
+            if(epNo) epNo.textContent = `No: ${bankInfo.easypaisa.accountNumber}`;
+            
+            if(jcName) jcName.textContent = `Name: ${bankInfo.jazzcash.accountName}`;
+            if(jcNo) jcNo.textContent = `No: ${bankInfo.jazzcash.accountNumber}`;
+            
+            if(bankName) bankName.textContent = `Name: ${bankInfo.bankAccount.accountName}`;
+            if(bankNo) bankNo.textContent = `IBAN: ${bankInfo.bankAccount.iban}`;
+        }
     }
 
     // Handle Image Name Preview
@@ -155,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     id: Date.now(), // Generate a unique ID
                     name: document.getElementById('new-name').value,
                     price: parseInt(document.getElementById('new-price').value),
+                    category: document.getElementById('new-category') ? document.getElementById('new-category').value : 'other',
                     image: event.target.result, // base64 image data
                     description: document.getElementById('new-desc').value,
                 };

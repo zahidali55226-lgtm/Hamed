@@ -1,16 +1,65 @@
 [
   {
-    "id": 101,
-    "name": "My Local Custom Tee",
-    "price": 799,
-    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
-    "description": "This is my custom data loaded directly from my computer."
+    "id": 201,
+    "name": "School Bag for Kids",
+    "price": 1200,
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80",
+    "description": "Durable and spacious school bag perfect for children."
   },
   {
-    "id": 102,
-    "name": "Another Cool Shirt",
-    "price": 899,
-    "image": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=500&q=80",
-    "description": "JSON data upload allows me to change this anytime."
+    "id": 202,
+    "name": "College Bagpack",
+    "price": 1800,
+    "image": "https://images.unsplash.com/photo-1491933382434-500287f9b54b?auto=format&fit=crop&w=500&q=80",
+    "description": "Stylish and trendy backpack for college students."
+  },
+  {
+    "id": 203,
+    "name": "Women's Fashion Handbag",
+    "price": 2500,
+    "image": "https://images.unsplash.com/photo-1584916201218-f4242ceb4809?auto=format&fit=crop&w=500&q=80",
+    "description": "Elegant women's handbag for daily use and parties."
+  },
+  {
+    "id": 204,
+    "name": "Men's Office Bag",
+    "price": 3000,
+    "image": "https://images.unsplash.com/photo-1554342872-034a06541bad?auto=format&fit=crop&w=500&q=80",
+    "description": "Professional and sturdy office bag for men."
+  },
+  {
+    "id": 301,
+    "name": "Men's Leather Shoes",
+    "price": 3500,
+    "image": "https://images.unsplash.com/photo-1614252332812-78d10ed7dfd0?auto=format&fit=crop&w=500&q=80",
+    "description": "High quality formal leather shoes for a perfect professional look."
+  },
+  {
+    "id": 302,
+    "name": "Men's Casual Sneakers",
+    "price": 2800,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=500&q=80",
+    "description": "Comfortable and stylish casual sneakers for daily wear."
+  },
+  {
+    "id": 303,
+    "name": "Men's Sandals",
+    "price": 1500,
+    "image": "https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&w=500&q=80",
+    "description": "Breathable and comfortable sandals for summer."
+  },
+  {
+    "id": 304,
+    "name": "Men's Chappal",
+    "price": 800,
+    "image": "https://plus.unsplash.com/premium_photo-1664443940173-1bb0e9e4f51e?q=80&w=500&auto=format&fit=crop",
+    "description": "Traditional comfortable chappal for everyday relaxed wear."
+  },
+  {
+    "id": 305,
+    "name": "Children's School Shoes",
+    "price": 1200,
+    "image": "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=500&q=80",
+    "description": "Durable and comfortable black school shoes for children."
   }
 ]

@@ -154,9 +154,30 @@ header {
 }
 
 .shop-container { 
-    max-width: 1200px; 
+    max-width: 1300px; 
     margin: 4rem auto; 
     padding: 0 1.5rem; 
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.sidebar-right {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .shop-container { 
+        flex-direction: column-reverse;
+    }
+    .sidebar-right {
+        width: 100%;
+    }
 }
 
 .section-title { 
@@ -165,6 +186,35 @@ header {
     font-weight: 700; 
     color: var(--primary-color); 
     text-align: center; 
+}
+
+.filter-chips {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--surface-color);
+    border: 1px solid #cbd5e1;
+    color: var(--text-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 .product-grid { 
@@ -340,7 +390,7 @@ header {
 }
 
 .footer-content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -352,6 +402,26 @@ header {
 .footer-content p {
     color: #cbd5e1;
     margin-bottom: 2rem;
+}
+
+.bank-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-width: 220px;
+}
+
+.bank-card h5 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.bank-card p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
 }
 
 .social-links {
@@ -392,77 +462,145 @@ header {
 
 /* Add Product Form Styles */
 .add-product-section {
-    background: var(--surface-color);
-    border-radius: var(--radius);
-    padding: 2rem;
-    box-shadow: var(--shadow);
-    margin-bottom: 4rem;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    border-radius: 20px;
+    padding: 2.2rem;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
+    position: sticky;
+    top: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 1.2rem;
+}
+
+.stylish-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+}
+
+.stylish-subtitle {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    font-weight: 400;
 }
 
 .product-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.6rem;
 }
 
-.full-width {
-    grid-column: 1 / -1;
+.form-full-width {
+    width: 100%;
 }
 
 .form-group label {
     font-weight: 600;
     font-size: 0.9rem;
-    color: var(--text-color);
+    color: #cbd5e1;
+    letter-spacing: 0.5px;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 0.8rem;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
     font-family: inherit;
     font-size: 1rem;
+    color: white;
     transition: var(--transition);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
 }
 
-.submit-product-btn {
-    background-color: var(--accent-color);
+.form-upload-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
     color: white;
-    border: none;
-    padding: 1rem;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
     transition: var(--transition);
 }
 
-.submit-product-btn:hover {
-    background-color: #059669;
-    transform: translateY(-2px);
+.form-upload-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
 }
 
-.export-btn {
-    background-color: var(--text-light);
+.file-name-text {
+    font-size: 0.85rem; 
+    color: #94a3b8; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    text-align: center;
+}
+
+.submit-product-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #10b981, #059669);
     color: white;
     border: none;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.submit-product-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.export-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.9rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
     cursor: pointer;
     margin-top: 1rem;
     transition: var(--transition);
@@ -470,7 +608,7 @@ header {
 }
 
 .export-btn:hover {
-    background-color: var(--text-color);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Profile Styles */
