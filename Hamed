@@ -1,0 +1,1049 @@
+// Yahan aapka aarzi (temporary) t-shirt data hai.
+// Jab aapko zarurat ho, aap yahan apna asli data aur images laga sakte hain!
+
+const tshirts = [
+    {
+        id: 1,
+        name: "Premium Black Graphic Tee",
+        price: 599,
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+        description: "A sleek black t-shirt made with 100% cotton. Perfect for every occasion."
+    },
+    {
+        id: 2,
+        name: "Classic White Minimalist",
+        price: 499,
+        image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=500&q=80",
+        description: "Simple, elegant, and comfortable. The classic white tee."
+    },
+    {
+        id: 3,
+        name: "Urban Red Streetwear",
+        price: 699,
+        image: "https://images.unsplash.com/photo-1568252542512-9fe8cf4c6ee3?auto=format&fit=crop&w=500&q=80",
+        description: "Stand out from the crowd with this bold red streetwear t-shirt."
+    },
+    {
+        id: 4,
+        name: "Ocean Blue V-Neck",
+        price: 549,
+        image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?auto=format&fit=crop&w=500&q=80",
+        description: "Cool and refreshing ocean blue tee with a comfortable V-neck."
+    },
+    {
+        id: 5,
+        name: "Vintage Grey Wash",
+        price: 649,
+        image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=500&q=80",
+        description: "A stylish vintage grey wash t-shirt for a retro look."
+    },
+    {
+        id: 6,
+        name: "Olive Green Essential",
+        price: 450,
+        image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=500&q=80",
+        description: "Earthy olive green tones, an absolute essential for your wardrobe."
+    },
+    {
+        id: 7,
+        name: "Neon Cyberpunk Edition",
+        price: 899,
+        image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=500&q=80",
+        description: "A futuristic neon design that looks incredible at night and parties."
+    },
+    {
+        id: 8,
+        name: "Sunny Yellow Graphic Tee",
+        price: 499,
+        image: "https://images.unsplash.com/photo-1569427389551-fb189f7f4e91?auto=format&fit=crop&w=500&q=80",
+        description: "Bright sunny yellow t-shirt to bring energy and good vibes."
+    },
+    {
+        id: 9,
+        name: "Striped Navy Classic",
+        price: 599,
+        image: "https://images.unsplash.com/photo-1618354691438-25af04c5119dc?auto=format&fit=crop&w=500&q=80",
+        description: "A timeless navy striped t-shirt that goes well with any jeans."
+    },
+    {
+        id: 10,
+        name: "Abstract Art Print",
+        price: 799,
+        image: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=500&q=80",
+        description: "Unique abstract print for art lovers and creative souls."
+    }
+];
+
+// Yahan aapna contact data lagayein
+const contactInfo = {
+    phone: "+92 300 1234567", // Apna mobile number yahan likhein
+    whatsapp: "+92 300 1234567", // Apna WhatsApp number yahan likhein
+    facebook: "https://facebook.com/ahmadstore" // Apna Facebook page link yahan likhein
+};
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad - Premium T-Shirts</title>
+    <meta name="description" content="Ahmad Store - Purchase premium quality t-shirts easily.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="logo-icon">H</div>
+            Ahmad<span>Store</span>
+        </div>
+        <div class="header-actions">
+            <label for="data-upload" class="upload-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                Upload Data
+            </label>
+            <input type="file" id="data-upload" accept=".json" style="display: none;">
+            <button class="cart-btn" aria-label="Cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+            <button class="profile-btn" id="profile-btn" aria-label="Profile">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>Profile</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="hero-section">
+        <h1>Welcome to Ahmad Store</h1>
+        <p>Discover our premium collection of T-shirts. High-quality fabric, modern designs, and maximum comfort.</p>
+    </section>
+
+    <!-- Profile View (Initially Hidden) -->
+    <section class="profile-container" id="profile-container" style="display: none;">
+        <div class="profile-card">
+            <div class="profile-header">
+                <img src="https://images.unsplash.com/photo-1531297172315-823a8b274213?auto=format&fit=crop&w=200&h=200&q=80" alt="Allah Tala Trust" class="profile-avatar">
+                <div class="profile-title">
+                    <h2 id="prof-name">Ahmad's Profile</h2>
+                    <p class="spiritual-quote">Bismillah ir-Rahman ir-Rahim</p>
+                </div>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-group">
+                    <label>Allah Tala Par Yaqeen (Trust)</label>
+                    <p class="highlight-text">Alhamdulillah, Everything is from Allah.</p>
+                </div>
+                <div class="detail-group">
+                    <label>Account Status</label>
+                    <p>Premium Member 🌟</p>
+                </div>
+                <div class="detail-group">
+                    <label>Store Owner</label>
+                    <p>Ahmad</p>
+                </div>
+            </div>
+            <button class="buy-btn" id="logout-btn" style="width: 100%; margin-top: 2rem;">Back to Store</button>
+        </div>
+    </section>
+
+    <main class="shop-container" id="main-shop">
+        
+        <div class="main-content">
+            <h2 class="section-title" style="text-align: left;">Trending T-Shirts</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be injected here dynamically by app.js from data.js -->
+            </div>
+        </div>
+
+        <aside class="sidebar-right">
+            <!-- Add New Product Form -->
+            <section class="add-product-section" id="add-product-section">
+                <h2 class="section-title" style="font-size: 1.5rem; text-align: left;">Add New T-Shirt</h2>
+                <form id="add-product-form" class="product-form">
+                    <div class="form-group">
+                        <label for="new-name">Name</label>
+                        <input type="text" id="new-name" placeholder="E.g. Vintage Blue Tee" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-price">Price (₹)</label>
+                        <input type="number" id="new-price" placeholder="E.g. 599" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Picture</label>
+                        <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 5px;">
+                            <input type="file" id="new-image-file" accept="image/*" required style="display: none;">
+                            <label for="new-image-file" class="upload-btn" style="width: auto; margin: 0; padding: 0.8rem 1rem; border-color: #cbd5e1; background: #fff; text-align: center; justify-content: center;">Choose Image</label>
+                            <span id="file-name-display" style="font-size: 0.9rem; color: var(--text-light); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">No picture chosen</span>
+                        </div>
+                    </div>
+                    <div class="form-group form-full-width">
+                        <label for="new-desc">Description</label>
+                        <textarea id="new-desc" rows="3" placeholder="Describe the t-shirt..." required></textarea>
+                    </div>
+                    <div class="form-group form-full-width">
+                        <button type="submit" class="submit-product-btn">Add Product to Store</button>
+                        <button type="button" id="export-data-btn" class="export-btn" title="Save your current store data to a JSON file">Save Data File</button>
+                    </div>
+                </form>
+            </section>
+        </aside>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Contact Ahmad Store</h3>
+            <p>Aap humse in zaraiye (channels) se raabta kar sakte hain:</p>
+            <div class="social-links">
+                <a href="#" id="contact-phone" class="social-btn phone-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    <span id="phone-text">Call Us</span>
+                </a>
+                <a href="#" id="contact-whatsapp" class="social-btn whatsapp-btn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp
+                </a>
+                <a href="#" id="contact-facebook" class="social-btn facebook-btn" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    Facebook
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Success Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <h2>Thank You! 🎉</h2>
+            <p id="modal-message">Your purchase was successful.</p>
+            <button class="close-modal" id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Data file load hone ke baad logic run hoga -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+[
+  {
+    "id": 101,
+    "name": "My Local Custom Tee",
+    "price": 799,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80",
+    "description": "This is my custom data loaded directly from my computer."
+  },
+  {
+    "id": 102,
+    "name": "Another Cool Shirt",
+    "price": 899,
+    "image": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?auto=format&fit=crop&w=500&q=80",
+    "description": "JSON data upload allows me to change this anytime."
+  }
+]
+
+:root {
+    --primary-color: #0f172a;
+    --secondary-color: #3b82f6;
+    --accent-color: #10b981;
+    --background-color: #f8fafc;
+    --surface-color: #ffffff;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --radius: 12px;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background-color: var(--background-color); 
+    color: var(--text-color); 
+    line-height: 1.6; 
+}
+
+header { 
+    background-color: var(--surface-color); 
+    padding: 1.5rem 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+}
+
+.brand { 
+    font-size: 1.8rem; 
+    font-weight: 800; 
+    color: var(--primary-color); 
+    letter-spacing: -0.5px; 
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.logo-icon {
+    background: linear-gradient(135deg, #ef4444, #b91c1c); /* Red Gradient */
+    color: white;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+    font-family: 'Outfit', sans-serif;
+}
+
+.brand span { 
+    color: var(--secondary-color); 
+    font-weight: 300;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.upload-btn {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+    transition: var(--transition);
+}
+
+.upload-btn:hover {
+    background-color: #e2e8f0;
+}
+
+.cart-btn { 
+    background: transparent; 
+    border: none; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    cursor: pointer; 
+    color: var(--primary-color); 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    transition: var(--transition); 
+}
+
+.cart-btn:hover { 
+    color: var(--secondary-color); 
+}
+
+.cart-count { 
+    background-color: var(--secondary-color); 
+    color: white; 
+    border-radius: 50%; 
+    padding: 0.1rem 0.6rem; 
+    font-size: 0.8rem; 
+}
+
+.profile-btn {
+    background: transparent; 
+    border: none; 
+    font-size: 1.1rem; 
+    font-weight: 600; 
+    cursor: pointer; 
+    color: var(--primary-color); 
+    display: flex; 
+    align-items: center; 
+    gap: 0.5rem; 
+    transition: var(--transition);
+}
+
+.profile-btn:hover {
+    color: var(--secondary-color);
+}
+
+.hero { 
+    text-align: center; 
+    padding: 5rem 1rem; 
+    background: linear-gradient(135deg, var(--primary-color), #203144); 
+    color: white; 
+}
+
+.hero h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 1rem; 
+    font-weight: 800; 
+}
+
+.hero p { 
+    font-size: 1.2rem; 
+    color: #cbd5e1; 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+.shop-container { 
+    max-width: 1300px; 
+    margin: 4rem auto; 
+    padding: 0 1.5rem; 
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.sidebar-right {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .shop-container { 
+        flex-direction: column-reverse;
+    }
+    .sidebar-right {
+        width: 100%;
+    }
+}
+
+.section-title { 
+    font-size: 2rem; 
+    margin-bottom: 2rem; 
+    font-weight: 700; 
+    color: var(--primary-color); 
+    text-align: center; 
+}
+
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 2.5rem; 
+}
+
+.product-card { 
+    background: var(--surface-color); 
+    border-radius: var(--radius); 
+    overflow: hidden; 
+    box-shadow: var(--shadow); 
+    transition: var(--transition); 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.product-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: var(--shadow-hover); 
+}
+
+.product-image-container { 
+    position: relative; 
+    width: 100%; 
+    padding-top: 100%; 
+    overflow: hidden; 
+}
+
+.product-image { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: var(--transition); 
+}
+
+.product-card:hover .product-image { 
+    transform: scale(1.05); 
+}
+
+.product-info { 
+    padding: 1.5rem; 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.product-title { 
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    margin-bottom: 0.5rem; 
+}
+
+.product-desc { 
+    font-size: 0.9rem; 
+    color: var(--text-light); 
+    margin-bottom: 1rem; 
+    flex-grow: 1; 
+}
+
+.product-footer { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: auto; 
+}
+
+.product-price { 
+    font-size: 1.3rem; 
+    font-weight: 700; 
+    color: var(--primary-color); 
+}
+
+.buy-btn { 
+    background-color: var(--primary-color); 
+    color: white; 
+    border: none; 
+    padding: 0.6rem 1.2rem; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: var(--transition); 
+}
+
+.buy-btn:hover { 
+    background-color: var(--secondary-color); 
+    transform: scale(1.05); 
+}
+
+/* Modal Styling */
+.modal-overlay { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    backdrop-filter: blur(4px); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: var(--transition); 
+}
+
+.modal-overlay.active { 
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+.modal { 
+    background: var(--surface-color); 
+    padding: 2.5rem; 
+    border-radius: var(--radius); 
+    max-width: 400px; 
+    width: 90%; 
+    text-align: center; 
+    transform: translateY(20px); 
+    transition: var(--transition); 
+    box-shadow: var(--shadow-hover); 
+}
+
+.modal-overlay.active .modal { 
+    transform: translateY(0); 
+}
+
+.modal h2 { 
+    margin-bottom: 1rem; 
+    color: var(--accent-color); 
+}
+
+.modal p { 
+    color: var(--text-light); 
+    margin-bottom: 1.5rem; 
+}
+
+.close-modal { 
+    background: var(--background-color); 
+    color: var(--text-color); 
+    border: 1px solid #e2e8f0; 
+    padding: 0.8rem 1rem; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    width: 100%; 
+    transition: var(--transition); 
+}
+
+.close-modal:hover { 
+    background: #e2e8f0; 
+}
+
+@media (max-width: 600px) {
+    .header-actions { gap: 0.8rem; }
+    .upload-btn { padding: 0.4rem 0.6rem; font-size: 0.8rem; }
+    .hero h1 { font-size: 2.5rem; }
+    .product-form { grid-template-columns: 1fr; }
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-content p {
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.2);
+}
+
+.phone-btn {
+    background-color: #475569;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.facebook-btn {
+    background-color: #1877F2;
+}
+
+/* Add Product Form Styles */
+.add-product-section {
+    background: var(--surface-color);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 100px;
+}
+
+.product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-full-width {
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submit-product-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-product-btn:hover {
+    background-color: #059669;
+    transform: translateY(-2px);
+}
+
+.export-btn {
+    background-color: var(--text-light);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.export-btn:hover {
+    background-color: var(--text-color);
+}
+
+/* Profile Styles */
+.profile-container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+}
+
+.profile-card {
+    background: var(--surface-color);
+    border-radius: var(--radius);
+    padding: 3rem;
+    box-shadow: var(--shadow);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    padding: 4px;
+}
+
+.profile-title h2 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.spiritual-quote {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.detail-group label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-group p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-top: 0.3rem;
+    font-weight: 500;
+}
+
+.highlight-text {
+    color: var(--accent-color) !important;
+    font-weight: 700 !important;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const productGrid = document.getElementById('product-grid');
+    const cartCount = document.getElementById('cart-count');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalMessage = document.getElementById('modal-message');
+    const dataUpload = document.getElementById('data-upload');
+    
+    // Form elements
+    const addProductForm = document.getElementById('add-product-form');
+    const exportDataBtn = document.getElementById('export-data-btn');
+
+    // Profile & Page elements
+    const profileBtn = document.getElementById('profile-btn');
+    const logoutBtn = document.getElementById('logout-btn');
+    const heroSection = document.getElementById('hero-section');
+    const mainShop = document.getElementById('main-shop');
+    const profileContainer = document.getElementById('profile-container');
+    
+    let cartItems = 0;
+    let currentProducts = (typeof tshirts !== 'undefined') ? tshirts : [];
+
+    // tshirts array 'data.js' se load ho raha hai by default
+    function renderProducts(productsData = currentProducts) {
+        if (!productGrid) return;
+        
+        productGrid.innerHTML = '';
+        currentProducts = productsData;
+        
+        currentProducts.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-image-container">
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">${product.name}</h3>
+                    <p class="product-desc">${product.description}</p>
+                    <div class="product-footer">
+                        <span class="product-price">₹${product.price}</span>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}">Buy Now</button>
+                    </div>
+                </div>
+            `;
+            productGrid.appendChild(card);
+        });
+
+        // Add event listeners lazily to all newly created buttons
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productName = e.target.getAttribute('data-name');
+                handlePurchase(productName);
+            });
+        });
+    }
+
+    function handlePurchase(productName) {
+        cartItems++;
+        cartCount.textContent = cartItems;
+        
+        // Purchase Success Message
+        modalMessage.innerHTML = `Aapne <strong>${productName}</strong> successfully purchase kar li hai!`;
+        modalOverlay.classList.add('active');
+    }
+
+    closeModalBtn.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+    });
+
+    // Close modal when clicked outside
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+        }
+    });
+
+    // Handle JSON Data Upload
+    if (dataUpload) {
+        dataUpload.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                try {
+                    const jsonData = JSON.parse(event.target.result);
+                    if (Array.isArray(jsonData)) {
+                        renderProducts(jsonData);
+                        alert('Data successfully loaded!');
+                    } else {
+                        alert('File format is incorrect. It should be an array of products.');
+                    }
+                } catch (err) {
+                    alert('Error parsing JSON file. Please provide a valid JSON.');
+                }
+            };
+            reader.readAsText(file);
+        });
+    }
+
+    // Load Contact Info if available
+    function renderContactInfo() {
+        if (typeof contactInfo !== 'undefined') {
+            const phoneEl = document.getElementById('contact-phone');
+            const phoneText = document.getElementById('phone-text');
+            const whatsappEl = document.getElementById('contact-whatsapp');
+            const facebookEl = document.getElementById('contact-facebook');
+            
+            if (phoneEl) {
+                phoneEl.href = `tel:${contactInfo.phone}`;
+                phoneText.textContent = contactInfo.phone;
+            }
+            if (whatsappEl) {
+                // Remove spaces and special characters from WhatsApp number for the link to work
+                const waNumber = contactInfo.whatsapp.replace(/[^0-9]/g, '');
+                whatsappEl.href = `https://wa.me/${waNumber}`;
+            }
+            if (facebookEl) {
+                facebookEl.href = contactInfo.facebook;
+            }
+        }
+    }
+
+    // Handle Image Name Preview
+    const newImageFile = document.getElementById('new-image-file');
+    const fileNameDisplay = document.getElementById('file-name-display');
+
+    if (newImageFile) {
+        newImageFile.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                fileNameDisplay.textContent = this.files[0].name;
+            } else {
+                fileNameDisplay.textContent = 'No picture chosen';
+            }
+        });
+    }
+
+    // Handle adding a new product
+    if (addProductForm) {
+        addProductForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('new-image-file');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert("Please select a picture first!");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const newProduct = {
+                    id: Date.now(), // Generate a unique ID
+                    name: document.getElementById('new-name').value,
+                    price: parseInt(document.getElementById('new-price').value),
+                    image: event.target.result, // base64 image data
+                    description: document.getElementById('new-desc').value,
+                };
+
+                // Add the product to the start of the list
+                currentProducts.unshift(newProduct);
+                
+                // Re-render the UI
+                renderProducts(currentProducts);
+                
+                // Reset the form
+                addProductForm.reset();
+                if (fileNameDisplay) {
+                    fileNameDisplay.textContent = 'No picture chosen';
+                }
+                
+                // Show Success Notification
+                modalMessage.innerHTML = `<strong>${newProduct.name}</strong> successfully store mein add ho gayi hai! <br><br> <em>Note: Ise hamesha ke liye save karne ke liye "Save Data File" button dabayein.</em>`;
+                modalOverlay.classList.add('active');
+            };
+            
+            // Read the image file as a Data URL
+            reader.readAsDataURL(file);
+        });
+    }
+
+    // Handle Exporting Data to JSON File
+    if (exportDataBtn) {
+        exportDataBtn.addEventListener('click', () => {
+            const dataStr = JSON.stringify(currentProducts, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = "my-ahmad-store-data.json";
+            document.body.appendChild(a);
+            a.click();
+            
+            // Cleanup
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        });
+    }
+
+    // Toggle Profile View
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            heroSection.style.display = 'none';
+            mainShop.style.display = 'none';
+            profileContainer.style.display = 'block';
+        });
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+            profileContainer.style.display = 'none';
+            heroSection.style.display = 'block';
+            mainShop.style.display = 'block';
+        });
+    }
+
+    // Run Initialization
+    renderProducts();
+    renderContactInfo();
+});
