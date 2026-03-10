@@ -55,6 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Store original dataset separately so we can filter consistently
+    let allStoreProducts = (typeof tshirts !== 'undefined') ? [...tshirts] : [];
+
     // Handle Filters
     const filterContainer = document.getElementById('filter-container');
     if (filterContainer) {
@@ -68,9 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const category = clickedBtn.getAttribute('data-category');
                 
                 if (category === 'all') {
-                    renderProducts(currentProducts);
+                    renderProducts(allStoreProducts);
                 } else {
-                    const filtered = currentProducts.filter(p => p.category === category);
+                    const filtered = allStoreProducts.filter(p => p.category === category);
                     renderProducts(filtered);
                 }
             });
