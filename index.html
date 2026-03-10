@@ -43,9 +43,9 @@
         </div>
     </header>
 
-    <section class="hero" id="hero-section">
-        <h1>Welcome to Ahmad Store</h1>
-        <p>Discover our premium collection of T-shirts. High-quality fabric, modern designs, and maximum comfort.</p>
+    <section class="hero" id="hero-section" style="background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 6rem 1rem;">
+        <h1 style="text-shadow: 0 4px 10px rgba(0,0,0,0.5);">Welcome to Ahmad Store</h1>
+        <p style="text-shadow: 0 2px 5px rgba(0,0,0,0.5);">Discover our premium collection of T-shirts, Bags, and Shoes. High-quality items, modern designs, and maximum comfort.</p>
     </section>
 
     <!-- Profile View (Initially Hidden) -->
@@ -73,34 +73,13 @@
                     <p>Ahmad</p>
                 </div>
             </div>
-            <button class="buy-btn" id="logout-btn" style="width: 100%; margin-top: 2rem;">Back to Store</button>
-        </div>
-    </section>
-
-    <main class="shop-container" id="main-shop">
-        
-        <div class="main-content">
-            <div class="store-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
-                <h2 class="section-title" style="margin-bottom: 0; text-align: left;">Explore Store</h2>
-                <div class="filter-chips" id="filter-container">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="t-shirt">T-Shirts</button>
-                    <button class="filter-btn" data-category="bag">Bags</button>
-                    <button class="filter-btn" data-category="shoes">Shoes</button>
-                </div>
-            </div>
+            <button class="buy-btn" id="logout-btn" style="width: 100%; margin-top: 2rem; margin-bottom: 2rem;">Back to Store</button>
             
-            <div class="product-grid" id="product-grid">
-                <!-- Products will be injected here dynamically by app.js from data.js -->
-            </div>
-        </div>
-
-        <aside class="sidebar-right">
-            <!-- Add New Product Form -->
-            <section class="add-product-section" id="add-product-section">
+            <!-- Add New Product Form  moved INSIDE profile-->
+            <section class="add-product-section" id="add-product-section" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); position: static;">
                 <div class="form-header">
-                    <h2 class="stylish-title">✨ Launch New T-Shirt</h2>
-                    <p class="stylish-subtitle">Expand your premium collection</p>
+                    <h2 class="stylish-title" style="font-size: 1.4rem;">✨ Launch New Product</h2>
+                    <p class="stylish-subtitle">Manage your catalog right from here</p>
                 </div>
                 <form id="add-product-form" class="product-form">
                     <div class="form-group">
@@ -133,7 +112,7 @@
                     </div>
                     <div class="form-group form-full-width">
                         <label for="new-desc">Engaging Description</label>
-                        <textarea id="new-desc" rows="3" placeholder="Craft a compelling story for this tee..." required></textarea>
+                        <textarea id="new-desc" rows="3" placeholder="Craft a compelling story for this product..." required></textarea>
                     </div>
                     <div class="form-group form-full-width" style="margin-top: 0.5rem;">
                         <button type="submit" class="submit-product-btn">
@@ -147,7 +126,25 @@
                     </div>
                 </form>
             </section>
-        </aside>
+        </div>
+    </section>
+
+    <main class="shop-container" id="main-shop">
+        <div class="main-content" style="width: 100%;">
+            <div class="store-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                <h2 class="section-title" style="margin-bottom: 0; text-align: left;">Explore Store</h2>
+                <div class="filter-chips" id="filter-container">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="t-shirt">T-Shirts</button>
+                    <button class="filter-btn" data-category="bag">Bags</button>
+                    <button class="filter-btn" data-category="shoes">Shoes</button>
+                </div>
+            </div>
+            
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be injected here dynamically by app.js from data.js -->
+            </div>
+        </div>
     </main>
 
     <footer class="footer">

@@ -157,27 +157,10 @@ header {
     max-width: 1300px; 
     margin: 4rem auto; 
     padding: 0 1.5rem; 
-    display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
 }
 
 .main-content {
-    flex: 1;
-}
-
-.sidebar-right {
-    width: 320px;
-    flex-shrink: 0;
-}
-
-@media (max-width: 900px) {
-    .shop-container { 
-        flex-direction: column-reverse;
-    }
-    .sidebar-right {
-        width: 100%;
-    }
+    width: 100%;
 }
 
 .section-title { 
