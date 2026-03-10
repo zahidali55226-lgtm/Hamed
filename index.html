@@ -33,13 +33,13 @@
                 </svg>
                 <span class="cart-count" id="cart-count">0</span>
             </button>
-            <button class="profile-btn" id="profile-btn" aria-label="Profile">
+            <a href="profile.html" class="profile-btn" id="profile-btn" aria-label="Profile" style="text-decoration: none;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                     <circle cx="12" cy="7" r="4"></circle>
                 </svg>
                 <span>Profile</span>
-            </button>
+            </a>
         </div>
     </header>
 
@@ -53,86 +53,7 @@
         <p style="text-shadow: 0 2px 8px rgba(0,0,0,0.6); font-size: 1.1rem; margin-top: 2rem; color: #cbd5e1;">Modern designs and maximum comfort.</p>
     </section>
 
-    <!-- Profile View (Initially Hidden) -->
-    <section class="profile-container" id="profile-container" style="display: none;">
-        <div class="profile-card">
-            <div class="profile-header">
-                <img src="https://images.unsplash.com/photo-1531297172315-823a8b274213?auto=format&fit=crop&w=200&h=200&q=80" alt="Allah Tala Trust" class="profile-avatar">
-                <div class="profile-title">
-                    <h2 id="prof-name">Ahmad's Profile</h2>
-                    <p class="spiritual-quote">Bismillah ir-Rahman ir-Rahim</p>
-                </div>
-            </div>
-            
-            <div class="profile-details">
-                <div class="detail-group">
-                    <label>Allah Tala Par Yaqeen (Trust)</label>
-                    <p class="highlight-text">Alhamdulillah, Everything is from Allah.</p>
-                </div>
-                <div class="detail-group">
-                    <label>Account Status</label>
-                    <p>Premium Member 🌟</p>
-                </div>
-                <div class="detail-group">
-                    <label>Store Owner</label>
-                    <p>Ahmad</p>
-                </div>
-            </div>
-            <button class="buy-btn" id="logout-btn" style="width: 100%; margin-top: 2rem; margin-bottom: 2rem;">Back to Store</button>
-            
-            <!-- Add New Product Form  moved INSIDE profile-->
-            <section class="add-product-section" id="add-product-section" style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); position: static;">
-                <div class="form-header">
-                    <h2 class="stylish-title" style="font-size: 1.4rem;">✨ Launch New Product</h2>
-                    <p class="stylish-subtitle">Manage your catalog right from here</p>
-                </div>
-                <form id="add-product-form" class="product-form">
-                    <div class="form-group">
-                        <label for="new-name">Product Title</label>
-                        <input type="text" id="new-name" placeholder="E.g. Vintage Blue Tee" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="new-price">Retail Price (₹)</label>
-                        <input type="number" id="new-price" placeholder="E.g. 599" required min="1">
-                    </div>
-                    <div class="form-group">
-                        <label for="new-category">Category</label>
-                        <select id="new-category" required style="padding: 1rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; font-family: inherit; font-size: 1rem; color: white;">
-                            <option value="t-shirt" style="color: black;">T-Shirt</option>
-                            <option value="bag" style="color: black;">Bag</option>
-                            <option value="shoes" style="color: black;">Shoes</option>
-                            <option value="other" style="color: black;">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Product Imagery</label>
-                        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 5px;">
-                            <input type="file" id="new-image-file" accept="image/*" required style="display: none;">
-                            <label for="new-image-file" class="form-upload-btn">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
-                                Browse Picture
-                            </label>
-                            <span id="file-name-display" class="file-name-text">No picture chosen</span>
-                        </div>
-                    </div>
-                    <div class="form-group form-full-width">
-                        <label for="new-desc">Engaging Description</label>
-                        <textarea id="new-desc" rows="3" placeholder="Craft a compelling story for this product..." required></textarea>
-                    </div>
-                    <div class="form-group form-full-width" style="margin-top: 0.5rem;">
-                        <button type="submit" class="submit-product-btn">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M12 20v-8m0 0V4m0 8h8m-8 0H4"></path></svg>
-                            Publish to Store
-                        </button>
-                        <button type="button" id="export-data-btn" class="export-btn" title="Backup your dynamic catalog to a JSON file">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-                            Backup Catalog
-                        </button>
-                    </div>
-                </form>
-            </section>
-        </div>
-    </section>
+
 
     <main class="shop-container" id="main-shop">
         <div class="main-content" style="width: 100%;">

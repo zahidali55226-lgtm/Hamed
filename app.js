@@ -18,7 +18,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileContainer = document.getElementById('profile-container');
     
     let cartItems = 0;
-    let currentProducts = (typeof tshirts !== 'undefined') ? tshirts : [];
+    
+    // Initialize from LocalStorage to keep items across different pages (index.html & profile.html)
+    let storedProducts = localStorage.getItem('ahmadStoreProducts');
+    let currentProducts = storedProducts ? JSON.parse(storedProducts) : ((typeof tshirts !== 'undefined') ? [...tshirts] : []);
 
     // tshirts array 'data.js' se load ho raha hai by default
     function renderProducts(productsData = currentProducts) {
@@ -56,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Store original dataset separately so we can filter consistently
-    let allStoreProducts = (typeof tshirts !== 'undefined') ? [...tshirts] : [];
+    let allStoreProducts = [...currentProducts];
 
     // Handle Filters
     const filterContainer = document.getElementById('filter-container');
@@ -213,6 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add the product to the start of the list
                 currentProducts.unshift(newProduct);
                 
+                // Save to local storage so it persists across pages
+                localStorage.setItem('ahmadStoreProducts', JSON.stringify(currentProducts));
+                
                 // Re-render the UI
                 renderProducts(currentProducts);
                 
@@ -248,23 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cleanup
             window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
-        });
-    }
-
-    // Toggle Profile View
-    if (profileBtn) {
-        profileBtn.addEventListener('click', () => {
-            heroSection.style.display = 'none';
-            mainShop.style.display = 'none';
-            profileContainer.style.display = 'block';
-        });
-    }
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            profileContainer.style.display = 'none';
-            heroSection.style.display = 'block';
-            mainShop.style.display = 'block';
         });
     }
 
