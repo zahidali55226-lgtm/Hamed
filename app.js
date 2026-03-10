@@ -144,6 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (facebookEl) {
                 facebookEl.href = contactInfo.facebook;
             }
+            
+            // Set for floating icon
+            const floatWaEl = document.getElementById('floating-whatsapp');
+            if (floatWaEl) {
+                const waNumber = contactInfo.whatsapp.replace(/[^0-9]/g, '');
+                floatWaEl.href = `https://wa.me/${waNumber}`;
+            }
         }
         
         if (typeof bankInfo !== 'undefined') {
