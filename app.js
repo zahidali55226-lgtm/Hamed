@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="product-desc">${product.description}</p>
                     <div class="product-footer">
                         <span class="product-price">₹${product.price}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}">Buy Now</button>
+                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Buy Now</button>
                     </div>
                 </div>
             `;
@@ -53,7 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.buy-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const productName = e.target.getAttribute('data-name');
-                handlePurchase(productName);
+                const productPrice = parseFloat(e.target.getAttribute('data-price'));
+                handlePurchase(productName, productPrice);
             });
         });
     }
@@ -83,13 +84,82 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function handlePurchase(productName) {
-        cartItems++;
-        cartCount.textContent = cartItems;
+    function handlePurchase(productName, productPrice) {
+        const modalTitle = document.querySelector('.modal h2');
+        const originalCloseBtn = document.getElementById('close-modal');
         
-        // Purchase Success Message
-        modalMessage.innerHTML = `Aapne <strong>${productName}</strong> successfully purchase kar li hai!`;
+        // Set up Checkout UI
+        modalTitle.textContent = 'Checkout 🛒';
+        originalCloseBtn.style.display = 'none';
+
+        modalMessage.innerHTML = `
+            <div style="text-align: left; margin-bottom: 1.5rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-color);"><strong>Product:</strong> ${productName}</p>
+                <p style="font-size: 1.1rem; color: var(--accent-color);"><strong>Price:</strong> ₹${productPrice}</p>
+                
+                <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-color);">Select Delivery Option:</label>
+                    <select id="delivery-select" style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 1rem; color: var(--text-color); background: white;">
+                        <option value="150">Standard Delivery (3-5 days) - ₹150</option>
+                        <option value="300">Express Delivery (1-2 days) - ₹300</option>
+                    </select>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px dashed #cbd5e1; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 1.2rem; font-weight: 700; color: var(--text-color);">Total Amount:</span>
+                    <span id="total-price-display" style="font-size: 1.4rem; font-weight: 800; color: var(--primary-color);">₹${Math.round(productPrice + 150)}</span>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                <button id="cancel-checkout-btn" class="close-modal" style="flex: 1; background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; border-radius: 8px; font-weight: 600; cursor: pointer;">Cancel</button>
+                <button id="confirm-order-btn" class="submit-product-btn" style="flex: 2; margin: 0; padding: 0.8rem; border-radius: 8px;">Place Order</button>
+            </div>
+        `;
+
         modalOverlay.classList.add('active');
+
+        // Logic for dropdown change
+        const deliverySelect = document.getElementById('delivery-select');
+        const totalDisplay = document.getElementById('total-price-display');
+        
+        deliverySelect.addEventListener('change', (e) => {
+            const deliveryCharge = parseFloat(e.target.value);
+            totalDisplay.textContent = '₹' + Math.round(productPrice + deliveryCharge);
+        });
+
+        // Cancel button
+        document.getElementById('cancel-checkout-btn').addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            setTimeout(() => {
+                modalTitle.textContent = 'Thank You! 🎉';
+                originalCloseBtn.style.display = 'block';
+            }, 300);
+        });
+
+        // Confirm button
+        document.getElementById('confirm-order-btn').addEventListener('click', () => {
+            const selectedDelivery = deliverySelect.options[deliverySelect.selectedIndex].text;
+            const finalTotal = totalDisplay.textContent;
+            
+            cartItems++;
+            if (cartCount) cartCount.textContent = cartItems;
+            
+            // Show Success Message
+            modalTitle.textContent = 'Order Confirmed! 🎉';
+            modalMessage.innerHTML = `
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="margin-bottom: 1rem; color: var(--text-color);">Aapka <strong>${productName}</strong> ka order confirm ho gaya hai!</p>
+                    <div style="background: #f8fafc; padding: 1rem; border-radius: 8px; text-align: left; font-size: 0.95rem; border: 1px solid #e2e8f0; color: var(--text-color);">
+                        <p style="margin-bottom: 0.5rem;"><strong>Delivery:</strong> ${selectedDelivery.split(' - ')[0]}</p>
+                        <p><strong>Total Paid:</strong> <span style="color: var(--primary-color); font-weight: 700;">${finalTotal}</span></p>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">Humaari team jald aapse raabta karegi.</p>
+                </div>
+            `;
+            
+            originalCloseBtn.style.display = 'block';
+        });
     }
 
     closeModalBtn.addEventListener('click', () => {
