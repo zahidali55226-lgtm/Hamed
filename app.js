@@ -38,12 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${product.image}" alt="${product.name}" class="product-image">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">${product.name}</h3>
-                    <p class="product-desc">${product.description}</p>
-                    <div class="product-footer">
-                        <span class="product-price">₹${product.price}</span>
-                        <button class="buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">Buy Now</button>
+                    <div class="product-header">
+                        <h3 class="product-title">${product.name}</h3>
+                        <span class="product-price">$${product.price}</span>
                     </div>
+                    <p class="product-desc">${product.description}<br><span style="color: #999;">Inter Regular, 14pt</span></p>
+                    <button class="add-to-cart-btn buy-btn" data-id="${product.id}" data-name="${product.name}" data-price="${product.price}">ADD TO CART</button>
                 </div>
             `;
             productGrid.appendChild(card);
@@ -95,19 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
         modalMessage.innerHTML = `
             <div style="text-align: left; margin-bottom: 1.5rem;">
                 <p style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-color);"><strong>Product:</strong> ${productName}</p>
-                <p style="font-size: 1.1rem; color: var(--accent-color);"><strong>Price:</strong> ₹${productPrice}</p>
+                <p style="font-size: 1.1rem; color: var(--accent-gold);"><strong>Price:</strong> $${productPrice}</p>
                 
                 <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.03); padding: 1rem; border-radius: 8px; border: 1px solid #e2e8f0;">
                     <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--text-color);">Select Delivery Option:</label>
                     <select id="delivery-select" style="width: 100%; padding: 0.8rem; border-radius: 6px; border: 1px solid #cbd5e1; font-family: inherit; font-size: 1rem; color: var(--text-color); background: white;">
-                        <option value="150">Standard Delivery (3-5 days) - ₹150</option>
-                        <option value="300">Express Delivery (1-2 days) - ₹300</option>
+                        <option value="15">Standard Delivery (3-5 days) - $15</option>
+                        <option value="30">Express Delivery (1-2 days) - $30</option>
                     </select>
                 </div>
 
                 <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 2px dashed #cbd5e1; display: flex; justify-content: space-between; align-items: center;">
                     <span style="font-size: 1.2rem; font-weight: 700; color: var(--text-color);">Total Amount:</span>
-                    <span id="total-price-display" style="font-size: 1.4rem; font-weight: 800; color: var(--primary-color);">₹${Math.round(productPrice + 150)}</span>
+                    <span id="total-price-display" style="font-size: 1.4rem; font-weight: 800; color: var(--primary-color);">$${Math.round(productPrice + 15)}</span>
                 </div>
             </div>
             
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         deliverySelect.addEventListener('change', (e) => {
             const deliveryCharge = parseFloat(e.target.value);
-            totalDisplay.textContent = '₹' + Math.round(productPrice + deliveryCharge);
+            totalDisplay.textContent = '$' + Math.round(productPrice + deliveryCharge);
         });
 
         // Cancel button

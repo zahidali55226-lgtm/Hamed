@@ -3,118 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmad - Premium T-Shirts</title>
-    <meta name="description" content="Ahmad Store - Purchase premium quality t-shirts easily.">
+    <title>Ahmad Store - Essential Elegance</title>
+    <meta name="description" content="Ahmad Store - Discover the Autumn/Winter Curated Collection">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="brand">
-            <div class="logo-icon">H</div>
-            Ahmad<span>Store</span>
-        </div>
-        <div class="header-actions">
-            <label for="data-upload" class="upload-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="17 8 12 3 7 8"></polyline>
-                    <line x1="12" y1="3" x2="12" y2="15"></line>
-                </svg>
-                Upload Data
-            </label>
-            <input type="file" id="data-upload" accept=".json" style="display: none;">
-            <button class="cart-btn" aria-label="Cart">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <span class="cart-count" id="cart-count">0</span>
-            </button>
-            <a href="profile.html" class="profile-btn" id="profile-btn" aria-label="Profile" style="text-decoration: none;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>Profile</span>
-            </a>
-        </div>
-    </header>
+    <div class="hero-wrapper">
+        <section class="hero" id="hero-section">
+            <header class="floating-header">
+                <div class="brand">
+                    AHMAD STORE
+                </div>
+                <nav class="main-nav">
+                    <a href="#">NEW ARRIVALS</a>
+                    <a href="#">COLLECTIONS</a>
+                    <a href="#">MEN</a>
+                    <a href="#">WOMEN</a>
+                    <a href="#">ABOUT</a>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="icon-btn search-btn" aria-label="Search">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </a>
+                    <a href="profile.html" class="icon-btn profile-btn" id="profile-btn" aria-label="Profile">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </a>
+                    <button class="icon-btn cart-btn" aria-label="Cart" style="position:relative;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <span class="cart-count badge" id="cart-count">0</span>
+                    </button>
+                    <!-- Keep the upload button hidden or styled as icon -->
+                    <label for="data-upload" class="icon-btn" aria-label="Upload Data" title="Upload JSON">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </label>
+                    <input type="file" id="data-upload" accept=".json" style="display: none;">
+                </div>
+            </header>
 
-    <section class="hero" id="hero-section" style="background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(30, 64, 175, 0.85)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; padding: 7rem 1rem; border-bottom: 4px solid #3b82f6;">
-        <h1 style="text-shadow: 0 4px 15px rgba(0,0,0,0.6); font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 1.5rem;">Welcome to Ahmad Store</h1>
-        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; text-shadow: 0 2px 8px rgba(0,0,0,0.6); font-size: 1.2rem; margin-top: 1rem;">
-            <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);">✨ Premium T-shirts</span>
-            <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);">🎒 Quality Bags</span>
-            <span style="background: rgba(255,255,255,0.1); padding: 0.5rem 1.5rem; border-radius: 30px; border: 1px solid rgba(255,255,255,0.2);">👞 Comfortable Shoes</span>
-        </div>
-        <p style="text-shadow: 0 2px 8px rgba(0,0,0,0.6); font-size: 1.1rem; margin-top: 2rem; color: #cbd5e1;">Modern designs and maximum comfort.</p>
-    </section>
-
+            <div class="hero-content">
+                <h1 class="hero-title">ESSENTIAL<br>ELEGANCE</h1>
+                <p class="hero-subtitle">Discover the Autumn/Winter Curated Collection<br><span style="font-family: 'Inter', sans-serif; font-size: 0.9em;">Inter Regular</span></p>
+                <button class="shop-now-btn">SHOP NOW</button>
+            </div>
+        </section>
+    </div>
 
 
     <main class="shop-container" id="main-shop">
-        <div class="main-content" style="width: 100%;">
-            <div class="store-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
-                <h2 class="section-title" style="margin-bottom: 0; text-align: left;">Explore Store</h2>
-                <div class="filter-chips" id="filter-container">
-                    <button class="filter-btn active" data-category="all">All</button>
-                    <button class="filter-btn" data-category="t-shirt">T-Shirts</button>
-                    <button class="filter-btn" data-category="bag">Bags</button>
-                    <button class="filter-btn" data-category="shoes">Shoes</button>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be injected here dynamically by app.js -->
+        </div>
+
+        <section class="explore-collections">
+            <h2 class="section-title">EXPLORE COLLECTIONS</h2>
+            <div class="collections-grid">
+                <div class="collection-card">
+                    <img src="https://plus.unsplash.com/premium_photo-1673356301535-224a0fdcb0c9?auto=format&fit=crop&q=80&w=800" alt="Men Collection">
+                    <div class="collection-overlay">
+                        <h3>MEN</h3>
+                    </div>
+                </div>
+                <div class="collection-card">
+                    <img src="https://images.unsplash.com/photo-1550614000-4b95dd5787eb?auto=format&fit=crop&q=80&w=800" alt="Women Collection">
+                    <div class="collection-overlay">
+                        <h3>WOMEN</h3>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-grid" id="product-grid">
-                <!-- Products will be injected here dynamically by app.js from data.js -->
+        </section>
+
+        <section class="curated-looks">
+            <h2 class="section-title">CURATED LOOKS</h2>
+            <div class="looks-grid">
+                <div class="look-card"><img src="https://plus.unsplash.com/premium_photo-1698260717285-b9b5c3d4af94?auto=format&fit=crop&q=80&w=600" alt="Look 1"></div>
+                <div class="look-card"><img src="https://images.unsplash.com/photo-1588117305388-c2631a279f82?auto=format&fit=crop&q=80&w=600" alt="Look 2"></div>
+                <div class="look-card"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&q=80&w=600" alt="Look 3"></div>
+                <div class="look-card"><img src="https://plus.unsplash.com/premium_photo-1690038820468-b800c82de4d7?auto=format&fit=crop&q=80&w=600" alt="Look 4"></div>
             </div>
-        </div>
+        </section>
+
+        <section class="newsletter-section">
+            <h2 class="section-title">NEWSLETTER</h2>
+            <p>Subscribe to keep elegance and news secure.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Enter your address" required>
+                <button type="submit">SUBSCRIBE</button>
+            </form>
+        </section>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <h3>Contact Ahmad Store</h3>
-            <p>Aap humse in zaraiye (channels) se raabta kar sakte hain:</p>
-            <div class="social-links" style="display: flex; flex-direction: column; max-width: 400px; margin: 0 auto; gap: 1rem;">
-                <a href="#" id="contact-phone" class="social-btn phone-btn" style="justify-content: center; padding: 1.2rem; font-size: 1.1rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                    <span id="phone-text">Call Us</span>
-                </a>
-                <a href="#" id="contact-whatsapp" class="social-btn whatsapp-btn" target="_blank" style="justify-content: center; padding: 1.2rem; font-size: 1.1rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    Chat on WhatsApp
-                </a>
-                <a href="#" id="contact-facebook" class="social-btn facebook-btn" target="_blank" style="justify-content: center; padding: 1.2rem; font-size: 1.1rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    Visit Facebook Page
-                </a>
+            <div class="footer-brand">
+                AHMAD<br>STORE
             </div>
-            
-            <div class="payment-info" id="payment-info-section" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                <h4 style="margin-bottom: 1rem; color: #cbd5e1; font-size: 1.2rem;">Payment Methods</h4>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; text-align: left;">
-                    <div class="bank-card">
-                        <h5>Easypaisa</h5>
-                        <p id="easypaisa-name">Name: Ahmad</p>
-                        <p id="easypaisa-no">No: 0300-1234567</p>
-                    </div>
-                    <div class="bank-card">
-                        <h5>JazzCash</h5>
-                        <p id="jazzcash-name">Name: Ahmad</p>
-                        <p id="jazzcash-no">No: 0300-1234567</p>
-                    </div>
-                    <div class="bank-card">
-                        <h5>Bank Account</h5>
-                        <p id="bank-name">Name: Ahmad</p>
-                        <p id="bank-no">IBAN: PK00MEZN000000000000</p>
-                    </div>
+            <div class="footer-links-container">
+                <div class="footer-links">
+                    <a href="#">Shop</a>
+                    <a href="#">Info</a>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Care</a>
+                    <a href="#">Legal</a>
                 </div>
             </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>AHMAD AHMAD STORE</span>
+            <span>© 2024 AHMAD STORE</span>
         </div>
     </footer>
 
+    <!-- Keep Modal -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal">
             <h2>Thank You! 🎉</h2>
@@ -130,7 +144,6 @@
         </svg>
     </a>
 
-    <!-- Data file load hone ke baad logic run hoga -->
     <script src="data.js"></script>
     <script src="app.js"></script>
 </body>
